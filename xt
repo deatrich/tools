@@ -1,0 +1,87 @@
+#!/bin/sh
+###############################################################################
+# FILE:		xt
+# PURPOSE:	Paul Schenk's xterm ..  emulate old Apollo behaviour of 
+#		cycling shell window colours
+#
+# AUTHOR:	PS, modified by DCD
+# DATE:		sometime in the 90's at CERN
+#
+# RETURNS:	0    - OK
+#		1    - error
+#
+# USAGE:	xt [ any_xterm_args_are_fine ]
+# WHERE:	
+#
+# CHANGES:	DCD .. added more colours
+#
+# NOTES:	
+#
+###############################################################################
+#set -v        # debugging tools
+#set -x
+unalias -a
+PATH=/usr/bin:/bin
+
+cmd=`basename $0`
+
+## exit in error with an informative message
+function err_exit() {
+  echo -e "$cmd: $1"
+  exit 1
+}
+
+if [ "$DISPLAY" = "" ] ; then
+  err_exit "DISPLAY is not set"
+fi
+
+which xterm >/dev/null 2>/dev/null
+if [ $? -ne 0 ] ; then
+  err_exit "You do not have 'xterm' installed"
+fi
+
+cycle="$HOME/.xterm_cycle"
+if [ ! -f $cycle ] ; then
+  touch $cycle
+fi
+
+read index < $cycle
+case "$index" in
+  1)
+    col="AliceBlue"  		## v. light blue
+    echo "2" > $cycle
+    ;;
+  2)
+    col="#e1ffd8"		## v. light green
+    echo "3" > $cycle
+    ;;
+  3)
+    col="#b0d6ff"		## medium blue
+    echo "4" > $cycle
+    ;;
+  4)
+    col="#ffffcc"		## v. light yellow
+    echo "5" > $cycle
+    ;;
+  5)
+    col="#ffe5e5"		## v. light pink
+    echo "6" > $cycle
+    ;;
+  6)
+    col="#edd4bc"		## v. light orange
+    echo "7" > $cycle
+    ;;
+  *)
+    col="#d0c1ff"		## light mauve
+    echo "1" > $cycle
+    ;;
+esac
+
+# If you like a bigger and bold font, try this:
+#exec xterm -class UXTerm -u8 -fn 9x15bold +vb -bg $col -fg black $* & 2>/dev/null
+# or just call this script with xterm arguments like:  xt -fn 9x15bold
+#
+
+exec xterm -class UXTerm -u8 +vb -bg $col -fg black $* & 2>/dev/null
+exit 0
+
