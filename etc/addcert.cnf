@@ -1,0 +1,33 @@
+## example openssl alternative configuration file for fields needed
+## in a certificate request.  See:  man req   or   man openssl-req
+## See also:
+## http://certificate.fyicenter.com/2098_OpenSSL_req_-distinguished_name_Configuration_Section.html
+
+[req]
+
+prompt                 = no
+distinguished_name     = Home-Example
+
+
+[ Home-Example ]
+## 2 Letter code for Country Name
+countryName=CA
+
+## State or Province Name (full name)
+stateOrProvinceName=British Columbia
+
+## Locality Name (eg, city)
+localityName=Cranbrook
+
+## Organization Name (eg, company)
+organizationName=Home
+
+## Organizational Unit Name (eg, section)
+#organizationalUnitName=
+
+## Common Name (eg, your name or your server's hostname)
+commonName=pi.home
+
+## Email Address for contact purposes
+emailAddress=some.email@somewhere.com
+
