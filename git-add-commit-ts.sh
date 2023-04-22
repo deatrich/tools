@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 ###############################################################################
 # PURPOSE:	Set the git timestamps to the original file timestamp
 #		of various files when adding them to a new git repository 
