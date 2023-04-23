@@ -13,6 +13,8 @@ Here is a summary of the current tools:
   - **git-touch.sh**
      - when you check out a repository this script sets the original
        file timestamps known to git
+  - **system-backup.sh**
+      - here is an example script for doing local system backups
   - **xt**
      - this is a happy xterm script that likes changing the xterm
        background colours.  It is best invoked by a window manager key
