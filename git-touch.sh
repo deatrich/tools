@@ -9,8 +9,9 @@
 # USAGE:	
 # WHERE:	
 #
-# BORROWED FROM:
+# BORROWED/ADAPTED FROM:
 # http://stackoverflow.com/questions/1964470/whats-the-equivalent-of-use-commit-times-for-git
+# https://copyprogramming.com/howto/git-commit-only-timestamp-modification-of-a-file
 #
 # CHANGES:	DCD at TRIUMF:
 #		- modified to test for file existance before updating timestamp
