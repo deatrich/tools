@@ -180,16 +180,16 @@ if [ "$external" = "yes" ] ; then
       umount $mntpoint
       errexit "Missing directory '$usbtarget'"
     else
-      dbg && echo rsync -aux $target $usbtarget
+      dbg && echo rsync -aux $localtarget/ $usbtarget/
       if [ "$external" = "yes" ] ; then
         if [ "$debug" = "yes" ] ; then
-          echo rsync -aux $target $usbtarget
+          echo rsync -aux $localtarget/ $usbtarget/
         else
-          rsync -aux $target $usbtarget
+          rsync -aux $localtarget/ $usbtarget/
         fi
         if [ $? -ne 0 ] ; then
           umount $mntpoint
-          errexit "Note - rsync from '$target' to '$usbtarget' had a problem"
+          errexit "Note - rsync from '$localtarget' to '$usbtarget' had a problem"
         fi
       fi
       dbg && echo umount $mntpoint
