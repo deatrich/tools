@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 ## Generate an OpenSSL server private key, a signing request, and a self-signed
 ## certificate.  Edit the configuration file 'addcert.cnf' and set values
 ## that correspond to your server data.
@@ -40,7 +40,7 @@ if [ -f "$crtfile" ] ; then
 fi
 
 ## generate private key
-/usr/bin/openssl genrsa -rand /proc/cpuinfo:/proc/dma:/proc/filesystems:/proc/interrupts:/proc/ioports:/proc/uptime 4096 > $keyfile 2>/dev/null
+/usr/bin/openssl genrsa -rand /proc/cpuinfo:/proc/filesystems:/proc/interrupts:/proc/ioports:/proc/uptime 4096 > $keyfile 2>/dev/null
 
 res=$?
 if [ $res != 0 ] ; then
