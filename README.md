@@ -14,10 +14,18 @@ Here is a summary of the current tools:
      - when you check out a repository this script sets the original
        file timestamps known to git
   - **system-backup.sh**
-      - here is an example script for doing local system backups
+     - here is an example script for doing local system backups
   - **xt**
      - this is a happy xterm script that likes changing the xterm
        background colours.  It is best invoked by a window manager key
        sequence (like CONTROL-ALT-X) and dismissed with CONTROL-D, which
        is to say that some people prefer the keyboard over the mouse...
+  - **mysql-backup.sh**
+     - Similar to *system-backup.sh*, this example script backs up MariaDB
+        or MySQL databases.
+  - **addcert.sh**
+     - this is a quick script which generates a self-signed certificate
+       typically used when hosting test web pages with the https protocol
+  - **prime-ssh-keys.sh**
+     - this useful script creates an ssh-agent on your behalf
 
